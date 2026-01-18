@@ -1,14 +1,12 @@
-# Sử dụng image nginx để chạy static website
 FROM nginx:alpine
 
-# Xóa cấu hình mặc định của nginx
-RUN rm -rf /usr/share/nginx/html/*
+# Xóa config mặc định
+RUN rm /etc/nginx/conf.d/default.conf
 
-# Copy nginx config để handle SPA routing
-COPY default.conf /etc/nginx/conf.d/default.conf
+# Copy cấu hình nginx hỗ trợ SPA
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy file HTML vào nginx html folder
+# Copy static files
 COPY . /usr/share/nginx/html
 
-# Mặc định nginx chạy cổng 80
 EXPOSE 80

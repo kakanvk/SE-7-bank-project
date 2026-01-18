@@ -13,7 +13,7 @@ RUN npm install
 # Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
-# Mở port (giả sử backend chạy cổng 5000)
+# Mở port (giả sử backend chạy cổng 3000)
 EXPOSE 5000
 
 # Lệnh chạy ứng dụng
